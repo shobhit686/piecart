@@ -1,0 +1,40 @@
+<html>
+  <head>
+
+    <title>Charts</title>
+    <link rel="stylesheet" href="piechart.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+     
+      function drawChart() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['English', 1350],
+          ['Mandarin', 1120],
+          ['Hindi', 600],
+          ['Spanish', 540],
+          ['Arabic', 300],
+          ['Others', 3600],
+        ]);
+
+        var options = {'title':'How many people (in millions) speak different languages in the world',
+                       'width': 500,
+                       'height': 300   };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="chart_div"></div>
+    <div id="piechart" class="chart"></div>
+  </body>
+</html>
